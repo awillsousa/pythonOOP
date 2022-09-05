@@ -32,5 +32,6 @@ class AssentoReservado(Assento):
     passageiros como idosos ou pessoas com crianças
     de colo
     '''
-    def __init__(self):
+    def __init__(self, poltronanum):
+        self.poltronanum = poltronanum
         pass

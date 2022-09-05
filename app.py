@@ -35,25 +35,25 @@ def exibe_menu():
     '''
     console.print(texto_menu)
 
-def cadastrar_passageiro():
+def cadastrar_passageiro(bagagem, identificador_voo, passaporte):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    t = input()
+    t = input(bagagem)
     pass
 
-def cadastrar_piloto():
+def cadastrar_piloto(matricula, horas_de_voo, habilitacao, exame_medico):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Pilotos ✈️ ")
     t = input()
     pass
 
-def cadastrar_comissario():
+def cadastrar_comissario(tipo_de_voo, idioma):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
     t = input()
     pass
 
-def cadastrar_voo():
+def cadastrar_voo(horario, identificador_aeronave):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Vôos ✈️ ")
     t = input()
