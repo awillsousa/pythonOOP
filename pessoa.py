@@ -10,5 +10,3 @@ class Pessoa():
         self.cpf = cpf
         self.idade = idade
         self.sexo = sexo
-
-        pass

@@ -1,10 +1,16 @@
+from passageiro import Passageiro
+
+
 class GerenciadorVoo:
     '''
     Gerenciador de vôos, responsável por gerenciar vôos, reservas, 
     passagens, tripulação e tudo mais. 
     '''
-    def __init__(self, portao_embarque, ):
-        self.portao_embarque = portao_embarque
-        
+    def __init__(self):
+        self.passageiros = []
 
-        pass
+    def cadastrar_passageiro (self, nome, rg, cpf, idade, sexo, bagagem, identificador_voo, passaporte):
+    
+        passageiro1 = Passageiro (nome, rg, cpf, idade, sexo, bagagem, identificador_voo, passaporte)
+        self.passageiros.append (passageiro1) 
+    

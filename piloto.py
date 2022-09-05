@@ -7,5 +7,4 @@ class Piloto():
         self.horas_de_voo = horas_de_voo
         self.habilitacao = habilitacao
         self.exame_medico = exame_medico
-
         pass
