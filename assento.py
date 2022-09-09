@@ -2,35 +2,63 @@ class Assento():
     '''
     Classe para representar um assento
     '''
-    def __init__(self):
-        pass
+
+    def __init__(self, valor_tarifa):
+      self.valor_tarifa = valor_tarifa
+      self.ocupado = False
+      
 
 class AssentoBasico(Assento):
     '''
-    Classe para representar um assento
+    Classe para representar um assento geral
     '''
-    def __init__(self):
-        pass
 
-class AssentoConfort(Assento):
-    '''
-    Classe para representar um assento mais caro
-    '''
-    def __init__(self):
-        pass
+    def __init__(self, valor_tarifa, desconto=0.0):
+      
+      super().__init__(valor_tarifa)      
+      self.desconto = desconto
+      self.tipo = "BASICO"
 
-class AssentoEmergencia(Assento):
-    '''
-    Classe para representar um assento de emergencia
-    '''
-    def __init__(self):
-        pass
+    def preco_final(self):
+      return self.valor_tarifa - (self.valor_tarifa*self.desconto/100)
 
-class AssentoReservado(Assento):
+    def tipo(self):
+      return self.tipo
+    
+class AssentoEmergencia(AssentoBasico):
     '''
-    Classe para representar um assento reservado para 
-    passageiros como idosos ou pessoas com crianças
-    de colo
+    Classe para representar um assento espei
     '''
-    def __init__(self):
-        pass
+
+    def __init__(self, valor_tarifa, desconto=10):
+      super().__init__(valor_tarifa)
+      self.tipo = "EMERGENCIA"
+      self.desconto = desconto
+      
+    def preco_final(self):
+      return self.valor_tarifa - (self.valor_tarifa*self.desconto/100)
+
+
+class AssentoConfort(AssentoBasico):
+    '''
+    Classe para representar um assento espei
+    '''
+
+    def __init__(self, valor_tarifa, extra, desconto=0.0):
+      super().__init__(valor_tarifa)
+      self.tipo = "CONFORT"
+      self.desconto = desconto
+      self.extra = extra
+
+    def preco_final(self):
+      return self.valor_tarifa - (self.valor_tarifa*self.desconto/100) + self.extra
+
+  
+class AssentoReservado(AssentoBasico):
+    '''
+    Classe para representar um assento reservado
+    '''
+
+    def __init__(self, valor_tarifa):
+      super().__init__(valor_tarifa)
+      self.tipo = "RESERVADO"

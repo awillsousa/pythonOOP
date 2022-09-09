@@ -41,11 +41,19 @@ def cadastrar_passageiro():
     t = input()
     pass
 
-def cadastrar_piloto():
+def cadastrar_piloto(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Pilotos ✈️ ")
-    t = input()
-    pass
+    nome = input("Digite o nome do piloto: ")
+    cpf = input("Digite o CPF do piloto: ")
+    idade = input("Digite a idade do piloto: ")
+    num_breve = input("Digite o num. do brevê do piloto: ")
+
+    cria_piloto = gerenciador.cadastrar_piloto(nome, cpf, idade, num_breve)
+    print(cria_piloto['msg'])
+    
+    # Aguardar enter do usuário
+    t = input("Pressione ENTER para continuar...")
 
 def cadastrar_comissario():
     limpa_tela()
@@ -71,12 +79,13 @@ def exibir_voo():
     t = input()
     pass
 
-def verifica_opcao_menu(opcao):
+def verifica_opcao_menu(opcao, gerenciador):
 
         if opcao == '1':
             cadastrar_passageiro()
         elif opcao == '2':
-            cadastrar_piloto()
+            cadastrar_piloto(gerenciador)
+
         elif opcao == '3':
             cadastrar_comissario()
         elif opcao == '4':
@@ -95,7 +104,7 @@ def main():
         limpa_tela()
         exibe_menu()
         opcao_menu = Prompt.ask("[bold red]Digite a opção desejada: [/bold red]")
-        verifica_opcao_menu(opcao_menu)
+        verifica_opcao_menu(opcao_menu, gerenciador)
 
         
 
