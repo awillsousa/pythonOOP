@@ -35,10 +35,21 @@ def exibe_menu():
     '''
     console.print(texto_menu)
 
-def cadastrar_passageiro(bagagem, identificador_voo, passaporte):
+def cadastrar_passageiro(bagagem, identificador_voo, passaporte, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade, sexo):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    t = input(bagagem)
+    
+    cria_passageiro = GerenciadorVoo.cadastrar_passageiro
+    horas_de_voo = input("Informar horas de voo:")
+    habilitacao = input("Informar horas de voo:")
+    exame_medico = input("Informar horas de voo:")
+    nome = input("Informar horas de voo:")
+    rg = input("Informar horas de voo:")
+    cpf = input("Informar horas de voo:")
+    idade = input("Informar horas de voo:")
+    sexo = input("Informar horas de voo:")
+    print(cria_passageiro['msg'])
+    t = input()
     pass
 
 def cadastrar_piloto(matricula, horas_de_voo, habilitacao, exame_medico):
@@ -57,7 +68,7 @@ def cadastrar_voo(horario, identificador_aeronave):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Vôos ✈️ ")
     t = input()
-    pass
+    pass    
 
 def comprar_passagem():
     limpa_tela()
