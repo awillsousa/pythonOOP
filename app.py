@@ -35,11 +35,23 @@ def exibe_menu():
     '''
     console.print(texto_menu)
 
-def cadastrar_passageiro():
+def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    t = input()
-    pass
+    nome = input("Digite o nome do passageiro: ")
+    cpf = input("Digite o cpf do passageiro: ")
+    idade = input("Digite o idade do passageiro: ")
+    pcd = input("Informe se o passageiro é PCD: ")
+    fidelidade = input("Digite o número do cartão fidelidade do passageiro: ")
+    consulta = gerenciador.consultar_passageiro(cpf)
+    if consulta[0]:
+        print('Passageiro já está cadastrado com este CPF!')
+        print(consulta[1])
+    else:
+        resultado = gerenciador.cadastrar_passageiro(nome,cpf,idade,pcd,fidelidade)
+        if resultado[0]:
+            print(resultado[1])
+    t=input("Pressione ENTER para continuar")
 
 def cadastrar_piloto(gerenciador):
     limpa_tela()
@@ -58,11 +70,23 @@ def cadastrar_piloto(gerenciador):
             print(resultado[1])
     t=input("Pressione ENTER para continuar")
 
-def cadastrar_comissario():
+def cadastrar_comissario(gerenciador):#nome,cpf,idade,pcd,funcao
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
-    t = input()
-    pass
+    nome = input("Digite o nome do comissario: ")
+    cpf = input("Digite o cpf do comissario: ")
+    idade = input("Digite o idade do comissario: ")
+    pcd = input("Informe se o comissario é PCD: ")
+    funcao = input("Digite a função do comissario: ")
+    consulta = gerenciador.consultar_comissario(cpf)
+    if consulta[0]:
+        print('Comissário já está cadastrado com este CPF!')
+        print(consulta[1])
+    else:
+        resultado = gerenciador.cadastrar_comissario(nome,cpf,idade,pcd,funcao)
+        if resultado[0]:
+            print(resultado[1])
+    t=input("Pressione ENTER para continuar")
 
 def cadastrar_voo():
     limpa_tela()
@@ -85,11 +109,11 @@ def exibir_voo():
 def verifica_opcao_menu(opcao,gerenciador):
 
         if opcao == '1':
-            cadastrar_passageiro()
+            cadastrar_passageiro(gerenciador)
         elif opcao == '2':
             cadastrar_piloto(gerenciador)
         elif opcao == '3':
-            cadastrar_comissario()
+            cadastrar_comissario(gerenciador)
         elif opcao == '4':
             cadastrar_voo()
         elif opcao == '5':

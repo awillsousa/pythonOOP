@@ -1,4 +1,6 @@
 from piloto import Piloto
+from passageiro import Passageiro
+from comissario import Comissario
 
 class GerenciadorVoo:
     '''
@@ -6,7 +8,7 @@ class GerenciadorVoo:
     passagens, tripulação e tudo mais. 
     '''
     def __init__(self):
-        self.passageiro=[]
+        self.passageiros=[]
         self.pilotos=[]
         self.comissarios=[]
         self.voos=[]
@@ -21,4 +23,26 @@ class GerenciadorVoo:
             if p.num_breve == num_breve:
                 return True, p.informacoes()
         return False, 'Não cadastrado!'
-        
+
+    def cadastrar_passageiro(self, nome,cpf,idade,pcd,fidelidade):
+        p=Passageiro(nome,cpf,idade,pcd,fidelidade)
+        self.passageiros.append(p)
+        return True,"Passageiro inserido com Sucesso"
+
+    def consultar_passageiro(self,cpf):
+        for p in self.passageiros:
+            if p.cpf == cpf:
+                return True, p.informacoes()
+        return False, 'Não cadastrado!'
+
+
+    def cadastrar_comissario(self,nome,cpf,idade,pcd,funcao):
+        p=Comissario(nome,cpf,idade,pcd,funcao)
+        self.comissarios.append(p)
+        return True,"Comissario inserido com Sucesso"
+
+    def consultar_comissario(self,cpf):
+        for p in self.comissarios:
+            if p.cpf == cpf:
+                return True, p.informacoes()
+        return False, 'Não cadastrado!'

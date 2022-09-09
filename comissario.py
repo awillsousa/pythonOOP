@@ -2,11 +2,12 @@ class Comissario():
     '''
     Classe para representar um comissário ou comissária de bordo
     '''
-    def __init__(self, matricula, nome, funcao, horas_voo):
-        self.matricula =matricula
+    def __init__(self,nome,cpf,idade,pcd,funcao):
+        self.pcd = pcd
         self.nome =nome
-        self.funcao =funcao
-        self.horas_voo =horas_voo
-    def adiciona_hora(self,horas):
-        self.horas_voo += horas
-        pass
+        self.idade =idade
+        self.cpf =cpf
+        self.funcao = funcao
+
+    def informacoes(self):
+        return 'Nome: '+self.nome+',cpf: '+self.cpf+', Idade: '+self.idade+', PCD: '+self.pcd+', Funcao: '+self.funcao

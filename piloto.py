@@ -12,5 +12,5 @@ class Piloto(Pessoa):
 
     def informacoes(self):
         return 'Nome: '+self.nome+',cpf: '+self.cpf+', Idade: '+self.idade+', Num. do Breve: '+self.num_breve
-        #print(f'Nome: {self.nome},cpf: {self.cpf}, Idade: {self.idade}, Num. do Breve: {self.num_breve}')
+        
         
