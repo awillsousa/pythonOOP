@@ -48,9 +48,14 @@ def cadastrar_piloto(gerenciador):
     cpf = input("Digite o cpf do piloto: ")
     idade = input("Digite o idade do piloto: ")
     num_breve = input("Digite o num_breve do piloto: ")
-    resultado = gerenciador.cadastrar_piloto(nome,cpf,idade,num_breve)
-    if resultado[0]:
-        print(resultado[1])
+    consulta = gerenciador.consultar_piloto(num_breve)
+    if consulta[0]:
+        print('Piloto já está cadastrado com este Breve!')
+        print(consulta[1])
+    else:
+        resultado = gerenciador.cadastrar_piloto(nome,cpf,idade,num_breve)
+        if resultado[0]:
+            print(resultado[1])
     t=input("Pressione ENTER para continuar")
 
 def cadastrar_comissario():

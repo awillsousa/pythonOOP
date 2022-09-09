@@ -7,9 +7,10 @@ class Piloto(Pessoa):
         self.pcd = False
         self.nome =nome
         self.idade =idade
+        self.cpf =cpf
         self.num_breve = num_breve
-        pass
 
-    def adiciona_hora(self,horas):
-        self.horas_voo += horas
-        pass
+    def informacoes(self):
+        return 'Nome: '+self.nome+',cpf: '+self.cpf+', Idade: '+self.idade+', Num. do Breve: '+self.num_breve
+        #print(f'Nome: {self.nome},cpf: {self.cpf}, Idade: {self.idade}, Num. do Breve: {self.num_breve}')
+        

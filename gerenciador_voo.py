@@ -15,3 +15,10 @@ class GerenciadorVoo:
         p=Piloto(nome,cpf,idade,num_breve)
         self.pilotos.append(p)
         return True,"Piloto inserido com Sucesso"
+
+    def consultar_piloto(self,num_breve):
+        for p in self.pilotos:
+            if p.num_breve == num_breve:
+                return True, p.informacoes()
+        return False, 'Não cadastrado!'
+        
