@@ -1,4 +1,4 @@
-import assento import *
+from assento import *
 
 class Voo():
     '''
@@ -9,7 +9,7 @@ class Voo():
         self.identificador_aeronave = identificador_aeronave
         self.origem = origem
         self.destino = destino
-        self.duracao - duracao
+        self.duracao = duracao
         self.tarifa_basica = tarifa_basica
         
         self.piloto = piloto

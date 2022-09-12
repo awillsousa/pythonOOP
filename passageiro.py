@@ -13,4 +13,3 @@ class Passageiro(Pessoa):
         self.rg = rg
         self.cpf = cpf
         self.idade = idade
-        self.sexo = sexo

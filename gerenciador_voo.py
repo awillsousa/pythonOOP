@@ -1,6 +1,7 @@
 from comissario import Comissario
 from passageiro import Passageiro
 from piloto import Piloto
+from voo import Voo
 
 class GerenciadorVoo:
     '''
@@ -12,14 +13,15 @@ class GerenciadorVoo:
         self.voos = []
         self.pilotos = []
         self.assentos = []
+        self.comissarios = []
 
 
-    def cadastrar_passageiro (self, nome, rg, cpf, idade, sexo):
+    def cadastrar_passageiro (self, nome, rg, cpf, idade):
         if self.passageiro_ja_existe(cpf):
             return {'resultado': False, 
                 'msg': 'Passageiro já cadastrado!'}
         else:
-            p = Passageiro(nome, rg, cpf, idade, sexo)        
+            p = Passageiro(nome, rg, cpf, idade)        
             self.passageiros.append(p)
 
             return {'resultado': True, 
@@ -33,12 +35,12 @@ class GerenciadorVoo:
         return False 
 
     
-    def cadastrar_comissario (self, tipo_de_voo, idioma, nome, rg, cpf, idade, sexo):
+    def cadastrar_comissario (self, tipo_de_voo, idioma, nome, rg, cpf, idade):
         if self.comissario_ja_existe(cpf):
             return {'resultado': False, 
                 'msg': 'Comissario já cadastrado!'}
         else:
-            p = Comissario(tipo_de_voo, idioma, nome, rg, cpf, idade, sexo)        
+            p = Comissario(tipo_de_voo, idioma, nome, rg, cpf, idade)        
             self.comissarios.append(p)
 
             return {'resultado': True, 
@@ -51,18 +53,18 @@ class GerenciadorVoo:
 
         return False 
 
-    def cadastrar_piloto (self, matricula, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade, sexo):
+    def cadastrar_piloto (self, matricula, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade):
         if self.piloto_ja_existe(cpf):
             return {'resultado': False, 
                 'msg': 'Piloto já cadastrado!'}
         else:
-            p = Piloto(matricula, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade, sexo)        
+            p = Piloto(matricula, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade)        
             self.pilotos.append(p)
 
             return {'resultado': True, 
                     'msg': 'Piloto inserido com sucesso!'}
     
-    def passageiro_ja_existe(self, cpf):        
+    def piloto_ja_existe(self, cpf):        
         for p in self.pilotos:
             if p.cpf == cpf:
                 return True
