@@ -18,7 +18,7 @@ class AssentoBasico(Assento):
     '''
     Classe para representar um assento geral
     '''
-    
+
     def __init__(self, valor_tarifa, desconto=0.0):
       
       super().__init__(valor_tarifa)      
