@@ -35,10 +35,9 @@ def exibe_menu():
     '''
     console.print(texto_menu)
 
-def cadastrar_passageiro(bagagem, identificador_voo, passaporte, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade, sexo):
+def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    
     cria_passageiro = GerenciadorVoo.cadastrar_passageiro
     horas_de_voo = input("Informar horas de voo:")
     habilitacao = input("Informar horas de voo:")
