@@ -5,13 +5,13 @@ class Assento():
     def __init__(self, assento_num, valor_passagem):
         self.poltronanum = assento_num
         self.ocupado = False
-        self.passageiro = =none
+        self.passageiro = None
 
     def ocupa_assento(self,passageiro):
         self.passgeiro = passageiro
     
     def desocupa_asssento(self):
-        self.passgeiro = none
+        self.passgeiro = None
 
 class AssentoBasico(Assento):
     '''

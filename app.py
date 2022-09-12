@@ -39,14 +39,11 @@ def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
     cria_passageiro = GerenciadorVoo.cadastrar_passageiro
-    horas_de_voo = input("Informar horas de voo:")
-    habilitacao = input("Informar horas de voo:")
-    exame_medico = input("Informar horas de voo:")
-    nome = input("Informar horas de voo:")
-    rg = input("Informar horas de voo:")
-    cpf = input("Informar horas de voo:")
-    idade = input("Informar horas de voo:")
-    sexo = input("Informar horas de voo:")
+    nome = input("Informar o nome:")
+    rg = input("Informar rg:")
+    cpf = input("Informar cpf:")
+    idade = input("Informar idade:")
+    sexo = input("Informar sexo:")
     print(cria_passageiro['msg'])
     t = input()
     pass
@@ -54,6 +51,13 @@ def cadastrar_passageiro(gerenciador):
 def cadastrar_piloto(matricula, horas_de_voo, habilitacao, exame_medico):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Pilotos ✈️ ")
+    cria_passageiro = GerenciadorVoo.cadastrar_passageiro
+    nome = input("Informar o nome:")
+    rg = input("Informar rg:")
+    cpf = input("Informar cpf:")
+    idade = input("Informar idade:")
+    sexo = input("Informar sexo:")
+    print(cria_passageiro['msg'])
     t = input()
     pass
 
