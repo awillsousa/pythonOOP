@@ -38,36 +38,59 @@ def exibe_menu():
 def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    cria_passageiro = GerenciadorVoo.cadastrar_passageiro
+    
     nome = input("Informar o nome:")
     rg = input("Informar rg:")
     cpf = input("Informar cpf:")
     idade = input("Informar idade:")
-    sexo = input("Informar sexo:")
+    sexo = input("Informar sexo M ou F:")
+    bagagem = input("Possui bagagem: S ou N:")
+    identificador_voo  = input("Insira o identificador do voo: ")
+    passaporte = input("Insira número do passaporte:")
+  
+    cria_passageiro = GerenciadorVoo.cadastrar_passageiro(nome, rg, cpf, idade, sexo, bagagem, identificador_voo, passaporte)
     print(cria_passageiro['msg'])
+
     t = input()
     pass
 
-def cadastrar_piloto(matricula, horas_de_voo, habilitacao, exame_medico):
+def cadastrar_piloto(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Pilotos ✈️ ")
-    cria_passageiro = GerenciadorVoo.cadastrar_passageiro
+    
     nome = input("Informar o nome:")
     rg = input("Informar rg:")
     cpf = input("Informar cpf:")
     idade = input("Informar idade:")
     sexo = input("Informar sexo:")
-    print(cria_passageiro['msg'])
+    horas_de_voo = input("Informar horas de voo")
+    habilitacao = input("Informar número de habilitação: ")
+    exame_medico = input("informe se vigente exame médico S ou N:")
+    
+    cria_piloto = GerenciadorVoo.cadastrar_piloto(matricula, horas_de_voo, habilitacao, exame_medico, nome, rg, cpf, idade, sexo)
+    print(cria_piloto['msg'])
     t = input()
     pass
 
-def cadastrar_comissario(tipo_de_voo, idioma):
+def cadastrar_comissario(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
+
+    nome = input("Informar o nome:")
+    rg = input("Informar rg:")
+    cpf = input("Informar cpf:")
+    idade = input("Informar idade:")
+    sexo = input("Informar sexo:")
+    tipo_de_voo = input("Informar o tipo de voo")
+    idioma = input("Informar o idioma: ")
+
+    cria_comissario = GerenciadorVoo.cadastrar_comissario(tipo_de_voo, idioma, nome, rg, cpf, idade, sexo)
+    print(cria_comissario['msg'])
+
     t = input()
     pass
 
-def cadastrar_voo(horario, identificador_aeronave):
+def cadastrar_voo(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Vôos ✈️ ")
     t = input()
@@ -88,17 +111,17 @@ def exibir_voo():
 def verifica_opcao_menu(opcao):
 
         if opcao == '1':
-            cadastrar_passageiro()
+            cadastrar_passageiro(gerenciador)
         elif opcao == '2':
-            cadastrar_piloto()
+            cadastrar_piloto(gerenciador)
         elif opcao == '3':
-            cadastrar_comissario()
+            cadastrar_comissario(gerenciador)
         elif opcao == '4':
-            cadastrar_voo()
+            cadastrar_voo(gerenciador)
         elif opcao == '5':
-            comprar_passagem()
+            comprar_passagem(gerenciador)
         elif opcao == '6':
-            exibir_voo()
+            exibir_voo(gerenciador)
 
 def main():
     
