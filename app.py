@@ -35,11 +35,20 @@ def exibe_menu():
     '''
     console.print(texto_menu)
 
-def cadastrar_passageiro():
+def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    t = input()
-    pass
+    nome = input("Digite o nome do passageiro: ")
+    cpf = input("Digite o CPF do passageiro: ")
+    idade = input("Digite a idade do passageiro: ")
+    pcd = input("O passageiro é PCD (S/N)?")
+
+    cria_passageiro = gerenciador.cadastrar_passageiro(nome, cpf, idade, pcd)
+    print(cria_passageiro['msg'])
+    
+    # Aguardar enter do usuário
+    t = input("Pressione ENTER para continuar...")
+    
 
 def cadastrar_piloto(gerenciador):
     limpa_tela()
@@ -55,25 +64,25 @@ def cadastrar_piloto(gerenciador):
     # Aguardar enter do usuário
     t = input("Pressione ENTER para continuar...")
 
-def cadastrar_comissario():
+def cadastrar_comissario(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
     t = input()
     pass
 
-def cadastrar_voo():
+def cadastrar_voo(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Vôos ✈️ ")
     t = input()
     pass
 
-def comprar_passagem():
+def comprar_passagem(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Compra de Passagens ✈️ ")
     t = input()
     pass
 
-def exibir_voo():
+def exibir_voo(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Informações de Vôo ✈️ ")
     t = input()
@@ -82,18 +91,18 @@ def exibir_voo():
 def verifica_opcao_menu(opcao, gerenciador):
 
         if opcao == '1':
-            cadastrar_passageiro()
+            cadastrar_passageiro(gerenciador)
         elif opcao == '2':
             cadastrar_piloto(gerenciador)
 
         elif opcao == '3':
-            cadastrar_comissario()
+            cadastrar_comissario(gerenciador)
         elif opcao == '4':
-            cadastrar_voo()
+            cadastrar_voo(gerenciador)
         elif opcao == '5':
-            comprar_passagem()
+            comprar_passagem(gerenciador)
         elif opcao == '6':
-            exibir_voo()
+            exibir_voo(gerenciador)
 
 def main():
     

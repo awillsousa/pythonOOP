@@ -1,4 +1,6 @@
 from piloto import Piloto
+from passageiro import Passageiro
+from comissario import Comissario
 
 class GerenciadorVoo:
     '''
@@ -11,6 +13,23 @@ class GerenciadorVoo:
         self.comissarios = []
         self.voos = []
 
+    def cadastrar_passageiro(self, nome, cpf, idade, pcd):
+        if self.passageiro_ja_existe(cpf):
+            return {'resultado': False, 
+                'msg': 'Passageiro já cadastrado!'}
+        else:
+            p = Passageiro(nome, cpf, idade, pcd)        
+            self.passageiros.append(p)
+
+            return {'resultado': True, 
+                    'msg': 'Passageiro inserido com sucesso!'}
+    
+    def passageiro_ja_existe(self, cpf):        
+        for p in self.passageiros:
+            if p.cpf == cpf:
+                return True
+
+        return False  
 
     def cadastrar_piloto(self, nome, cpf, idade, num_breve):
         
@@ -24,8 +43,7 @@ class GerenciadorVoo:
             return {'resultado': True, 
                     'msg': 'Piloto inserido com sucesso!'}
         
-    def piloto_ja_existe(self, cpf):
-        
+    def piloto_ja_existe(self, cpf):        
         for p in self.pilotos:
             if p.cpf == cpf:
                 return True

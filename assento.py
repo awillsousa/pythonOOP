@@ -6,7 +6,13 @@ class Assento():
     def __init__(self, valor_tarifa):
       self.valor_tarifa = valor_tarifa
       self.ocupado = False
+      self.passageiro = None
+
+    def ocupa_assento(self, passageiro):
+      self.passageiro = passageiro
       
+    def desocupa_assento(self):
+      self.passageiro = None
 
 class AssentoBasico(Assento):
     '''
