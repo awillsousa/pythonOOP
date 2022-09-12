@@ -34,12 +34,23 @@ def exibe_menu():
     7 - Sair
     '''
     console.print(texto_menu)
-
-def cadastrar_passageiro():
+    
+# Pegar dados para cadastrar passageiro
+def cadastrar_passageiro(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Passageiros ✈️ ")
-    t = input()
-    pass
+    nome = input("Digite o nome do passageiro: ")
+    cpf = input("Digite o CPF do passageiro: ")
+    idade = input("Digite a idade do passageiro: ")
+    pcd = input("O passageiro é PCD (S/N)? ")
+    
+    cria_passageiro = gerenciador.cadastrar_passageiro(nome, cpf, idade, pcd)
+    print(cria_passageiro['msg'])
+    
+    # Aguardar enter do usuário
+    t = input("Pressione ENTER para continuar...")
+    
+    
 
 def cadastrar_piloto(gerenciador):
     limpa_tela()
@@ -55,9 +66,11 @@ def cadastrar_piloto(gerenciador):
     # Aguardar enter do usuário
     t = input("Pressione ENTER para continuar...")
 
-def cadastrar_comissario():
+def cadastrar_comissario(gerenciador):
     limpa_tela()
     exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
+    
+    
     t = input()
     pass
 

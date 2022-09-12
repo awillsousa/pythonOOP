@@ -10,6 +10,6 @@ class Piloto(Pessoa):
         self.cpf = cpf
         self.idade = idade
         self.num_breve = num_breve
-    
+
 
         
