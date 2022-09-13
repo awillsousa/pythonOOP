@@ -14,12 +14,12 @@ class GerenciadorVoo:
         self.comissarios = []
         self.voos = []
 
-    def cadastrar_passageiro(self, nome, cpf, idade):      
+    def cadastrar_passageiro(self, nome, cpf, idade, passaporte, pcd):      
         if self.passageiro_ja_existe(cpf):
             return {'resultado': False,
                 'msg': 'Passageiro já cadastrado!'}
         else:
-            pa = Passageiro(nome, cpf, idade)      
+            pa = Passageiro(nome, cpf, idade, passaporte, pcd)      
             self.passageiros.append(pa)
 
             return {'resultado': True,
