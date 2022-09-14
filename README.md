@@ -3,7 +3,7 @@
 ### Preparação do ambiente
 
 Para prepararmos o nosso ambiente, será necessário criar um ambiente específico de instalação. 
-
+ 
 Após a instalação do ambiente Anaconda, execute a criação do ambiente.
 ```
 conda create --name oop python=3.10
