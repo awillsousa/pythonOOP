@@ -57,6 +57,13 @@ class GerenciadorVoo:
             return {'resultado': True,
                     'msg': 'Passageiro inserido com sucesso!'}
     
+    def seleciona_passageiro_por_cpf(self, cpf):
+        for p in self.passageiros:
+            if p.cpf == cpf:
+                return p
+        
+        return None
+    
     def passageiro_ja_existe(self, cpf):        
         for pa in self.passageiros:
             if pa.cpf == cpf:
