@@ -64,6 +64,12 @@ class GerenciadorVoo:
 
         return False
 
+    def lista_passageiros(self):
+        print("\nPassageiros cadastrados no sistema")
+        for p in self.passageiros:
+            print(f"{p.nome} - CPF: {p.cpf}")
+        print()
+
     def cadastrar_piloto(self, matricula, nome, cpf, idade, habilitacao):
         
         if self.piloto_ja_existe(cpf):
@@ -82,6 +88,32 @@ class GerenciadorVoo:
                 return True
 
         return False
+    
+    def seleciona_comissario(self):
+        # exibir a lista de comissários
+        print("\nComissários cadastrados no sistema")
+        for i, c in enumerate(self.comissarios):
+            print(f"{i+1} - {c.nome} [CPF:{c.cpf}]")
+        
+        # pede ao usuário que escolha um comissário
+        numero_valido = False
+        opcao_comissario = 0
+        while not numero_valido:
+            opcao_comissario = input("\nDigite o número do comissário na lista a escolher: ")
+            opcao_comissario = int(opcao_comissario)
+
+            if len(self.pilotos) >= opcao_comissario >= 1:
+                numero_valido = True
+
+        # recuperar o objeto piloto da lista de pilotos
+        return self.comissarios[opcao_comissario-1]
+
+    def lista_comissarios(self):
+        print("\nComissários cadastrados no sistema")
+        for c in self.comissarios:
+            print(f"{c.nome} - CPF: {c.cpf}")
+        print()
+
     
     def cadastrar_comissario(self, nome, cpf, idade, matricula, idioma):            
         if self.comissario_ja_existe(cpf):

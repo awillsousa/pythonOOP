@@ -72,8 +72,9 @@ def cadastrar_comissario(gerenciador):
     cpf = input("Digite o CPF do comissário: ")
     idade = input("Digite a idade do comissário: ")    
     matricula = input("Digite a habilitacao do comissário: ") 
+    idioma = input("Informar idioma: ")
 
-    cria_piloto = gerenciador.cadastrar_comissario(nome, cpf, idade, matricula)                                                
+    cria_piloto = gerenciador.cadastrar_comissario(nome, cpf, idade, matricula, idioma)                                                
     print(cria_piloto['msg'])   
     
     # Aguardar enter do usuário
