@@ -42,7 +42,13 @@ def cadastrar_passageiro(gerenciador):
     nome = input("Digite o nome do passageiro: ")
     cpf = input("Digite o CPF do passageiro: ")
     idade = input("Digite a idade do passageiro: ")
+    
+    #indicação se o passageiro é PCD ou não e valida a resposta
     pcd = input("O passageiro é PCD (S/N)? ")
+    while pcd not in ['S', 'N']:
+        print("Opção inválida! Digite S ou N")
+        pcd = input("O passageiro é PCD (S/N)?")
+    pcd = True if pcd == "S" else False
     
     cria_passageiro = gerenciador.cadastrar_passageiro(nome, cpf, idade, pcd)
     print(cria_passageiro['msg'])
@@ -68,11 +74,20 @@ def cadastrar_piloto(gerenciador):
 
 def cadastrar_comissario(gerenciador):
     limpa_tela()
-    exibe_titulo(" ✈️ Cadastro de Comissários ✈️ ")
+    exibe_titulo(" ✈️  Cadastro de Comissários ✈️ ")
     
+    #entrada de dados dos comissários
+    nome = input("Digite o nome do comissário(a): ")
+    cpf = input("Digite o CPF do comissário(a): ")
+    idade = input("Digite a idade do comissário(a): ")
+    pcd = input("O comissário(a) é PCD (S/N)? ")
     
-    t = input()
-    pass
+    #chama gerenciador
+    cria_comissario = gerenciador.cadastrar_comissario(nome, cpf, idade, pcd)
+    print(cria_comissario['msg'])
+    
+    t = input("Pressione ENTER para continuar.")
+    
 
 def cadastrar_voo():
     limpa_tela()
@@ -95,18 +110,18 @@ def exibir_voo():
 def verifica_opcao_menu(opcao, gerenciador):
 
         if opcao == '1':
-            cadastrar_passageiro()
+            cadastrar_passageiro(gerenciador)
         elif opcao == '2':
             cadastrar_piloto(gerenciador)
 
         elif opcao == '3':
-            cadastrar_comissario()
+            cadastrar_comissario(gerenciador)
         elif opcao == '4':
-            cadastrar_voo()
+            cadastrar_voo(gerenciador)
         elif opcao == '5':
-            comprar_passagem()
+            comprar_passagem(gerenciador)
         elif opcao == '6':
-            exibir_voo()
+            exibir_voo(gerenciador)
 
 def main():
     
