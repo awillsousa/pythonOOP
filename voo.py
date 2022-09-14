@@ -1,9 +1,3 @@
-#from assento import Assento, 
-#                    AssentoBasico, 
-#                    AssentoConfort, 
-#                    AssentoEmergencia, 
-#                    AssentoReservado
-
 from assento import *
 
 class Voo():
@@ -26,7 +20,19 @@ class Voo():
        self.comissarios_voo = comissarios_voo
        
        # define os assentos do vôo
-       self.assentos = self.define_mapa_assentos()
+       self.assentos = []
+       self.define_mapa_assentos()
+
+    def assento_valido(self, fila, poltrona):
+        if fila >= len(self.assentos) or fila < 0:
+            return False
+        elif poltrona >= len(self.assentos[0]) or poltrona < 0: 
+            return False
+        
+        return True
+
+    def assento_ocupado(self, fila, poltrona):
+        return self.assentos[fila][poltrona].ocupado
 
     def ocupa_assento(self, fila, poltrona, passageiro):
         self.assentos[fila][poltrona].ocupa_assento(passageiro)
@@ -62,16 +68,26 @@ class Voo():
 
         corredor = "||     |"
         line = '-'*(9*poltronas+3)
-
-        print("RES - RESERVADO")
-        print("BAS - BÁSICO")
-        print("EME - EMERGÊNCIA")
-        print("CON - CONFORT")
+        print("Tipos de Assentos: ")
+        print("\tRES - RESERVADO")
+        print("\tBAS - BÁSICO")
+        print("\tEME - EMERGÊNCIA")
+        print("\tCON - CONFORT\n")
         
         print("MAPA DE ASSENTOS".center(len(line)))
+        # exibe os números das posições das poltronas
+        linha_num_poltronas = "   "
+        for p in range(poltronas):
+            linha_num_poltronas += f"{p+1}".center(8)
+            if p+1 == poltronas//2:
+                linha_num_poltronas += "        "
+                
+        print(linha_num_poltronas)
+
+        # exibe as poltronas nas filas
         for f in range(filas):
             print(line)
-            seq_poltronas = ""
+            seq_poltronas = f"{f+1} "
             for p in range(poltronas):
                 tipo_assento = self.assentos[f][p].tipo
                 ocupado = self.assentos[f][p].ocupado
@@ -94,4 +110,19 @@ class Voo():
             print(seq_poltronas)
 
         print(line)
-    
+
+    def exibe_informacoes(self):
+        print(f"Voo: {self.numero}")
+        print(f"Origem: {self.origem}")
+        print(f"Destino: {self.destino}")
+        print(f"Piloto: {self.piloto.nome}")
+        print(f"Total de assentos: {len(self.assentos)*len(self.assentos[0])}")
+
+        # Calcula o total de assentos ocupados
+        assentos_ocupados = 0
+        for fila in self.assentos:
+            for poltrona in fila:
+                if poltrona.ocupado:
+                    assentos_ocupados += 1
+
+        print(f"Assentos ocupados: {assentos_ocupados}")

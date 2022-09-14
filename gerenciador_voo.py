@@ -14,12 +14,12 @@ class GerenciadorVoo:
         self.comissarios = []
         self.voos = []
 
-    def cadastrar_passageiro(self, nome, cpf, idade, passaporte, pcd):      
+    def cadastrar_passageiro(self, nome, cpf, idade):      
         if self.passageiro_ja_existe(cpf):
             return {'resultado': False,
                 'msg': 'Passageiro já cadastrado!'}
         else:
-            pa = Passageiro(nome, cpf, idade, passaporte, pcd)      
+            pa = Passageiro(nome, cpf, idade)      
             self.passageiros.append(pa)
 
             return {'resultado': True,
@@ -68,3 +68,37 @@ class GerenciadorVoo:
                 return True
 
         return False
+
+    def cadastra_voo(self, numero, origem, destino, horario_partida, 
+                        duracao_estimada, tarifa_basica, piloto, copiloto, 
+                        comissarios_voo):
+        if self.voo_ja_existe(numero):
+            return {'resultado': False, 
+                'msg': 'Voo já cadastrado!'}
+        else:
+            v = Voo(numero, origem, destino, horario_partida, 
+            duracao_estimada, tarifa_basica, piloto, copiloto, 
+            comissarios_voo)      
+            self.voos.append(v)
+
+            return {'resultado': True, 
+                    'msg': 'Voo inserido com sucesso!'}
+
+    def lista_voos(self):
+        print("\nVoos cadastrados no sistema")
+        for v in self.voos:
+            print(f"{v.numero} - Origem: {v.origem} Destino: {v.destino}")
+        print()
+
+    def seleciona_voo_por_numero(self, numero):
+        for v in self.voos:
+            if v.numero == numero:
+                return v
+    
+        return None
+
+    def voo_ja_existe(self, numero):
+        if self.seleciona_voo_por_numero(numero) is None:
+            return False
+        
+        return True
