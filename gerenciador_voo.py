@@ -14,6 +14,38 @@ class GerenciadorVoo:
         self.comissarios = []
         self.voos = []
 
+    def lista_voos(self):
+        print("\nVoos cadastrados no sistema")
+        for v in self.voos:
+            print(f"{v.numero} - Origem: {v.origem} Destino: {v.destino}")
+        print()
+
+    def seleciona_voo_por_numero(self, numero):
+        for v in self.voos:
+            if v.numero == numero:
+                return v
+    
+        return None
+
+    def voo_ja_existe(self, numero):
+        if self.seleciona_voo_por_numero(numero) is None:
+            return False
+        
+        return True
+
+    def lista_pilotos(self):
+        print("\nPilotos cadastrados no sistema")
+        for p in self.pilotos:
+            print(f"{p.nome} - CPF: {p.cpf}")
+        print()
+
+    def seleciona_piloto_por_cpf(self, cpf):
+        for p in self.pilotos:
+            if p.cpf == cpf:
+                return p
+        
+        return None
+    
     def cadastrar_passageiro(self, nome, cpf, idade):      
         if self.passageiro_ja_existe(cpf):
             return {'resultado': False,
