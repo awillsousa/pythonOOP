@@ -10,4 +10,8 @@ class Pessoa():
         self.idade = idade
         self.pcd = pcd
 
-    
+    def compara(self, outra_pessoa):
+        if self.cpf == outra_pessoa.cpf:
+            return True
+        else:
+            return False

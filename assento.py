@@ -10,9 +10,11 @@ class Assento():
 
     def ocupa_assento(self, passageiro):
       self.passageiro = passageiro
+      self.ocupado = True
       
     def desocupa_assento(self):
       self.passageiro = None
+      self.ocupado = False
 
 class AssentoBasico(Assento):
     '''
