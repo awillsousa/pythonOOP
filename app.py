@@ -107,8 +107,8 @@ def cadastrar_voo(gerenciador):
     # selecao do copiloto
     copiloto = None
     while copiloto is None:
-        cpf_copiloto_busca = input("Digite o cpf do copiloto a buscar: ") 
-        copiloto = gerenciador.seleciona_piloto_por_cpf(cpf_copiloto_busca)
+        cpf_piloto_busca = input("Digite o cpf do copiloto a buscar: ") 
+        copiloto = gerenciador.seleciona_piloto_por_cpf(cpf_piloto_busca)
 
         if copiloto is None:
             print("Copiloto não localizado!")
