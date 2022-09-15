@@ -107,15 +107,18 @@ def cadastrar_voo(gerenciador):
     # selecao do copiloto
     copiloto = None
     while copiloto is None:
-        cpf_piloto_busca = input("Digite o cpf do copiloto a buscar: ") 
+        gerenciador.lista_pilotos()
+        cpf_copiloto_busca = input("Digite o cpf do copiloto a buscar: ") 
         copiloto = gerenciador.seleciona_piloto_por_cpf(cpf_piloto_busca)
 
-        if copiloto is None:
+        if copiloto not in gerenciador.lista_pilotos():
             print("Copiloto não localizado!")
 
-        if copiloto.compara(piloto) == True:
+        if cpf_copiloto_busca == piloto:
             print("O piloto e o copiloto não podem ser a mesma pessoa!")
             copiloto = None
+        else:
+            copiloto = cpf_copiloto_busca
 
     print(f"Copiloto {copiloto.nome} selecionado!")
 

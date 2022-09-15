@@ -33,18 +33,6 @@ class GerenciadorVoo:
         
         return True
 
-    def lista_pilotos(self):
-        print("\nPilotos cadastrados no sistema")
-        for p in self.pilotos:
-            print(f"{p.nome} - CPF: {p.cpf}")
-        print()
-
-    def seleciona_piloto_por_cpf(self, cpf):
-        for p in self.pilotos:
-            if p.cpf == cpf:
-                return p
-        
-        return None
     
     def cadastrar_passageiro(self, nome, cpf, idade):      
         if self.passageiro_ja_existe(cpf):
@@ -95,6 +83,19 @@ class GerenciadorVoo:
                 return True
 
         return False
+
+    def lista_pilotos(self):
+        print("\nPilotos cadastrados no sistema")
+        for pi in self.pilotos:
+            print(f"{pi.nome} - CPF: {pi.cpf}")
+        print()
+
+    def seleciona_piloto_por_cpf(self, cpf):
+        for pi in self.pilotos:
+            if pi.cpf == cpf:
+                return pi
+        
+        return None
     
     def seleciona_comissario(self):
         # exibir a lista de comissários
